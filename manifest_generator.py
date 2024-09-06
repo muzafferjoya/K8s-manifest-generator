@@ -1,4 +1,5 @@
 import yaml
+import random
 
 def generate_deployment(name, image, replicas, container_port):
     deployment = {
@@ -29,10 +30,20 @@ def generate_service(name, port, target_port, service_type):
         'metadata': {'name': name},
         'spec': {
             'selector': {'app': name},
-            'ports': [{'port': port, 'targetPort': target_port}],
+            'ports': [{
+                'protocol': 'TCP',  # Explicit protocol
+                'port': port,
+                'targetPort': target_port
+            }],
             'type': service_type
         }
     }
+
+    if service_type == "NodePort":
+        # NodePort should be within the range 30000-32767
+        node_port = random.randint(30000, 32767)
+        service['spec']['ports'][0]['nodePort'] = node_port  # Add nodePort to the service
+
     return yaml.dump(service)
 
 # User Inputs
