@@ -45,20 +45,30 @@ python3 manifest_generator.py
 You will be prompted to enter the following details:
 
 Application Name: The name of your Kubernetes deployment and service.
+
 Docker Image Name: The Docker image you want to deploy.
+
 Replicas: The number of pod replicas.
+
 Container Port: The container's internal port.
+
 Service Port: The external port for the service.
+
 Service Type: The type of Kubernetes service (ClusterIP, NodePort, or LoadBalancer).
 
 Example
 Here is an example of how the script runs:
 
 Enter the application name: pets-api
+
 Enter the Docker image name: pets-api:latest
+
 Enter the number of replicas: 3
+
 Enter the container port: 3000
+
 Enter the service port: 80
+
 Enter the service type (ClusterIP, NodePort, LoadBalancer): NodePort
 
 
