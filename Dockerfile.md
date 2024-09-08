@@ -54,7 +54,7 @@ This generates a Dockerfile for a Python project using Python version 3.9 and ex
 To generate a Dockerfile for a Java project with Maven:
 
 ```bash
-python script_name.py java 8 8081 --jar_file myapp.jar
+python script_name.py java 8 8080 --maven_version 3.6.3 --java_version 8
 ```
 
 This generates a Dockerfile for a Maven-built Java application, using OpenJDK 8, exposing port 8081, and specifying myapp.jar as the JAR file.
